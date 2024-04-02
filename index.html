@@ -12,7 +12,7 @@
 <body>
     <!-- HEADER -->
     <header>
-        <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-4">
             <div class="container-lg">
                 <a class="navbar-brand fs-3" href="#">Bool Factory</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,15 +35,73 @@
             </div>
         </nav>
     </header>
+    <div class="container-lg">
+        <div class="row">
 
-    <!-- MAIN titolo, form -->
-    <!-- /MAIN -->
+            <!-- MAIN titolo, form -->
+            <main class="col-8">
+                <h1>Richiesta Preventivo</h1>
+                <span class="fs-4">Compila il form per richiedere un preventivo per i nostri servizi di
+                    sviluppo</span>
+
+                <!-- FORM -->
+                <form method="dialog">
+                    <div class="mb-3">
+                        <label for="nameForm" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="formName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="surnameForm" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="formSurname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailForm" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="formEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jobSelect" class="form-label">Tipo di Lavoro</label>
+                        <select class="form-select" name="jobs" id="selectJob">
+                            <option value="blank">Seleziona il tipo di lavoro</option>
+                            <option value="backend">Backend Development</option>
+                            <option value="frontend">Frontend Development</option>
+                            <option value="analysis">Project Analysis</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="textareaForm">Commenti</label>
+                        <textarea class="form-control" id="textareaForm" style="height: 120px;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="codeForm" class="form-label">Codice Promozionale (opzionale)</label>
+                        <input type="text" class="form-control" id="codeForm">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Accetto la <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center px-5 py-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Calcola preventivo</button>
+                        <div class="text-center px-5">
+                            <div class="fs-5"><strong>Prezzo finale</strong></div>
+                            <div id="price" class="fs-3 text-light-emphasis"><strong class="fs-2"><span id="strongPrice"
+                                        class="text-black">€ 200</span></strong>,<span id="decPrice">00</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        </div>
+
+        </main>
+        <!-- /MAIN -->
+
+        <!-- SIDE card contatti -->
+        <!-- /SIDE -->
 
 
-    <!-- SIDE card contatti -->
-    <!-- /SIDE -->
-
-
+    </div>
+    </div>
     <!-- FOOTER -->
 
     <!-- SCRIPT BOOTSTRAP !!! NON TOCCARE !!! -->
