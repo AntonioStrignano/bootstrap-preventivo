@@ -1,0 +1,13 @@
+.alert-animation {
+    animation: alert 0.5s;
+}
+
+@keyframes alert {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
