@@ -26,7 +26,6 @@ const jobs = [
     { jobLabel: 'Project Analysis', rate: 33.6, selectValue: 'analysis' },
 ];
 
-// console.log(jobs);
 
 const jobList = []
 
@@ -52,9 +51,10 @@ document.getElementById("jobSelect").innerHTML = selectJobs
 const promoCodes = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24']
 
 let fullPrice = 0
+let selectedValue = ''
 
 function fullPriceCalc() {
-    const selectedValue = document.querySelector("#jobSelect").value;
+    selectedValue = document.querySelector("#jobSelect").value;
     const selectedRate = jobs.find((element) => element.selectValue == selectedValue).rate
     fullPrice = selectedRate * 10;
 }
@@ -75,29 +75,33 @@ function promo() {
 let splittedPrice = []
 
 function writePrice() {
-    finalPrice = finalPrice.toFixed(2)
-    splittedPrice = finalPrice.split('.')
-    document.getElementById("price").innerHTML = `<strong class="fs-2 text-black">&euro; ${splittedPrice[0]}</strong>,${splittedPrice[1]}`
+    if (selectedValue !== "blank") {
+        finalPrice = finalPrice.toFixed(2)
+        splittedPrice = finalPrice.split('.')
+        document.getElementById("price").innerHTML = `<strong class="fs-2 text-black">&euro; ${splittedPrice[0]}</strong>,${splittedPrice[1]}`
+        document.getElementById("jobAlert").classList.add('d-none')
+    } else {
+        document.getElementById("jobAlert").classList.remove('d-none')
+
+
+    }
 }
 
 function debug() {
-
     console.log('fullPrice 2 = ' + fullPrice);
     console.log(`il codice esiste? ${promoCodes.includes(document.getElementById("codeForm").value)}`)
     console.log(`final price = ${finalPrice}`);
     console.log(splittedPrice);
+    console.log(selectedValue);
 }
 
-function submitClick() {
 
-}
 
 const submitButton = document.getElementById("submitButton");
-submitButton.addEventListener('click', submitClick)
 submitButton.addEventListener('click', fullPriceCalc)
 submitButton.addEventListener('click', promo)
 submitButton.addEventListener('click', writePrice)
-// submitButton.addEventListener('click', debug)
+submitButton.addEventListener('click', debug)
 
 // QUINDI
 // listener del submit (il form è in method dialog, quindi non invia), se NON tutti i campi sono pieni stampa "compilare tutti i campi", altrimenti invoca funzione del calcolo prezzo
