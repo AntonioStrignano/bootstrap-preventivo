@@ -13,13 +13,41 @@
 
 // Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” (con 2 decimali e il simbolo dell’euro).
 
+console.log("Bool Factory - richiesta preventivo");
+
 // CREAZIONE OGGETTI DEI LAVORI
 // dando ai lavori il costo orario come key e assegnando i lavori diversi
+// e creare variabile della lista di lavori nel DOM con id jobSelect
+
+const jobs = [
+    { jobLabel: 'Seleziona il tipo di lavoro', rate: NaN, selectValue: 'blank' },
+    { jobLabel: 'Backend Development', rate: 20.5, selectValue: 'backend' },
+    { jobLabel: 'Frontend Development', rate: 15.3, selectValue: 'frontend' },
+    { jobLabel: 'Project Analysis', rate: 33.6, selectValue: 'analysis' },
+];
+
+const jobList = []
+
+jobs.forEach(function (job) {
+    jobList.push('<option value="' + job.selectValue + '">' + job.jobLabel + '</option>');
+})
+
+let selectJob = ''
+console.log(selectJob);
+
+jobList.forEach(function (option) {
+    selectJob = selectJob + option
+})
+
+document.getElementById("jobSelect").innerHTML = selectJob
+
 
 // FUNZIONE CALCOLO PREZZO
 // vabiabile lavoro dal form, prendendo la tariffa oraria dalla key di ogni oggetto * 10 (ore) = prezzo pieno
 // se inserito codice sconto allora parte ciclo che verifica se il codice sconto inserito esiste nell'array di codici sconto funzionanti e prezzo pieno * 3 / 4 = prezzo finale
 // POI FORMATTA prezzo finale con due cifre decimali, dividi in in array numero intero e parte decimale
+
+
 
 // QUINDI
 // listener del submit (il form è in method dialog, quindi non invia), se NON tutti i campi sono pieni stampa "compilare tutti i campi", altrimenti invoca funzione del calcolo prezzo
@@ -28,5 +56,3 @@
 
 //INFINE EXTRA
 // aggiungere animazione con CSS al messaggio "compila tutti i campi" a comparsa così da capire quando lo script viene invocato e dà errore
-
-console.log("Bool Factory - richiesta preventivo");
