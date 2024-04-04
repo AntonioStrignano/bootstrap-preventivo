@@ -48,6 +48,10 @@
 
                 <!-- FORM -->
                 <form method="dialog" class="mt-4">
+
+                    <div class="alert alert-danger d-none" role="alert" id="formAlert">
+                        Compila tutti i campi!
+                    </div>
                     <div class="mb-3">
                         <label for="nameForm" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="nameForm">
@@ -66,7 +70,6 @@
                         <select class="form-select" name="jobs" id="jobSelect">
                         </select>
                     </div>
-
                     <div class="alert alert-danger d-none" role="alert" id="jobAlert">
                         Scegli un lavoro dalla lista!
                     </div>
@@ -78,11 +81,14 @@
                         <label for="codeForm" class="form-label">Codice Promozionale (opzionale)</label>
                         <input type="text" class="form-control" id="codeForm">
                     </div>
+                    <div class="alert alert-danger d-none" role="alert" id="privacyAlert">
+                        Leggi e accetta la privacy policy.
+                    </div>
                     <div class="form-check">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <label class="form-check-label" for="privacyCheck">
                             Accetto la <a href="/privacy-policy" target="_blank">Privacy Policy</a>
                         </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="privacyCheck">
                     </div>
                     <!-- submit + prezzo -->
                     <div class="row gy-3 px-5 py-4">

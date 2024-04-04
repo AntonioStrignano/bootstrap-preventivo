@@ -34,7 +34,6 @@ jobs.forEach(function (job) {
 })
 
 let selectJobs = ''
-console.log(selectJobs);
 
 jobList.forEach(function (option) {
     selectJobs = selectJobs + option
@@ -72,27 +71,48 @@ function promo() {
     }
 }
 
+
+let formValid = false
+function formValidation() {
+    if (document.getElementById("nameForm").value == '' || document.getElementById("surnameForm").value == '' || document.getElementById("emailForm").value == '') {
+        document.getElementById("formAlert").classList.remove('d-none');
+    } else if (
+        document.getElementById("privacyCheck").checked == false
+    ) {
+        document.getElementById("formAlert").classList.add('d-none');
+        document.getElementById("privacyAlert").classList.remove('d-none');
+
+    } else if (document.getElementById("jobSelect").value == 'blank') {
+        document.getElementById("privacyAlert").classList.add('d-none');
+        document.getElementById("jobAlert").classList.remove('d-none')
+    }
+    else {
+        formValid = true
+    }
+}
+
+
 let splittedPrice = []
 
 function writePrice() {
-    if (selectedValue !== "blank") {
+    if (formValid == false) {
+    }
+    else {
         finalPrice = finalPrice.toFixed(2)
         splittedPrice = finalPrice.split('.')
         document.getElementById("price").innerHTML = `<strong class="fs-2 text-black">&euro; ${splittedPrice[0]}</strong>,${splittedPrice[1]}`
         document.getElementById("jobAlert").classList.add('d-none')
-    } else {
-        document.getElementById("jobAlert").classList.remove('d-none')
-
-
     }
 }
 
 function debug() {
-    console.log('fullPrice 2 = ' + fullPrice);
-    console.log(`il codice esiste? ${promoCodes.includes(document.getElementById("codeForm").value)}`)
-    console.log(`final price = ${finalPrice}`);
-    console.log(splittedPrice);
-    console.log(selectedValue);
+    // console.log('fullPrice 2 = ' + fullPrice);
+    // console.log(`il codice esiste? ${promoCodes.includes(document.getElementById("codeForm").value)}`)
+    // console.log(`final price = ${finalPrice}`);
+    // console.log(splittedPrice);
+    // console.log(selectedValue);
+    // console.log(document.getElementById("privacyCheck").checked);
+    console.log(formValid);
 }
 
 
@@ -100,6 +120,7 @@ function debug() {
 const submitButton = document.getElementById("submitButton");
 submitButton.addEventListener('click', fullPriceCalc)
 submitButton.addEventListener('click', promo)
+submitButton.addEventListener('click', formValidation)
 submitButton.addEventListener('click', writePrice)
 submitButton.addEventListener('click', debug)
 
