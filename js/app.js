@@ -67,14 +67,6 @@ function formValidation() {
         document.getElementById("privacyAlert").offsetWidth = document.getElementById("privacyAlert").offsetWidth
         document.getElementById("privacyAlert").classList.add("alert-animation");
         document.getElementById("jobAlert").classList.add('d-none')
-
-
-    } else if (document.getElementById("jobSelect").value == 'blank') {
-        document.getElementById("privacyAlert").classList.add('d-none');
-        document.getElementById("jobAlert").classList.remove('d-none')
-        document.getElementById("jobAlert").classList.remove("alert-animation");
-        document.getElementById("jobAlert").offsetWidth = document.getElementById("jobAlert").offsetWidth
-        document.getElementById("jobAlert").classList.add("alert-animation");
     }
     else {
         formValid = true
@@ -87,6 +79,14 @@ let splittedPrice = []
 
 function writePrice() {
     if (formValid == false) {
+    }
+    else if (document.getElementById("jobSelect").value == 'blank') {
+        document.getElementById("privacyAlert").classList.add('d-none');
+        document.getElementById("jobAlert").classList.remove('d-none')
+        document.getElementById("jobAlert").classList.remove("alert-animation");
+        document.getElementById("jobAlert").offsetWidth = document.getElementById("jobAlert").offsetWidth
+        document.getElementById("jobAlert").classList.add("alert-animation");
+        document.getElementById("price").innerHTML = `<strong class="fs-2 text-black">&euro; ___</strong>,__`
     }
     else {
         finalPrice = finalPrice.toFixed(2)
